@@ -14,15 +14,12 @@ pipeline {
 
         stage('Build Java App') {
             steps {
-                sh 'javac Main.java'
+                bat 'javac Main.java'
             }
         }
-
         stage('Build Docker Image') {
             steps {
-                script {
-                    docker.build("${IMAGE_NAME}:latest")
-                }
+                bat 'docker build -t my-app-name .'
             }
         }
 
