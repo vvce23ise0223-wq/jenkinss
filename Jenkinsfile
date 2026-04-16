@@ -9,13 +9,13 @@ pipeline {
 
         stage('Clone Code') {
             steps {
-                git 'https://github.com//Docker.git'
+                git 'https://github.com/vvce23ise0223-wq/jenkinss.git'
             }
         }
 
         stage('Build Java App') {
             steps {
-                sh 'javac demo.java'
+                sh 'javac Main.java'
             }
         }
 
