@@ -8,12 +8,6 @@ pipeline {
 
     stages {
 
-        stage('Check Docker') {
-            steps {
-                bat 'docker version'
-            }
-        }
-
         stage('Build Java Application') {
             steps {
                 bat 'javac HelloWorld.java'
@@ -40,7 +34,7 @@ pipeline {
                     passwordVariable: 'PASS'
                 )]) {
 
-                    bat 'echo %PASS% | docker login -u %USER% --password-stdin'
+                    bat "docker login -u %USER% -p %PASS%"
                 }
             }
         }
