@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         DOCKER_CREDENTIAL_ID = 'Docker'
-        IMAGE_NAME = '/docker_image'
+        IMAGE_NAME = 'appuraki/docker_image'
     }
 
     stages {
