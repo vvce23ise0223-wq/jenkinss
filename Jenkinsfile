@@ -22,7 +22,7 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                bat "docker build -t $%IMAGE_NAME%:latest ."
+                bat "docker build -t $<IMAGE_NAME>:latest ."
             }
         }
 
@@ -41,7 +41,7 @@ pipeline {
 
         stage('Push Docker Image') {
             steps {
-                bat "docker push $%IMAGE_NAME%:latest"
+                bat "docker push $<IMAGE_NAME>:latest"
             }
         }
     }
