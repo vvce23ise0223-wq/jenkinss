@@ -8,6 +8,12 @@ pipeline {
 
     stages {
 
+        stage('Check Docker') {
+            steps {
+                bat 'docker version'
+            }
+        }
+
         stage('Build Java Application') {
             steps {
                 bat 'javac HelloWorld.java'
@@ -22,7 +28,7 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                bat "docker build -t ${env.IMAGE_NAME}:latest ."
+                bat "docker build -t %IMAGE_NAME%:latest ."
             }
         }
 
@@ -41,7 +47,7 @@ pipeline {
 
         stage('Push Docker Image') {
             steps {
-                bat "docker push ${env.IMAGE_NAME}:latest"
+                bat "docker push %IMAGE_NAME%:latest"
             }
         }
     }
